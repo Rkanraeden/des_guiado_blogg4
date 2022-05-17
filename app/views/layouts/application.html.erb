@@ -6,11 +6,28 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <main class="container">
+      <nav>
+        <ul>
+          <li></li>
+          <li>
+            <%= link_to root_path do %>
+              <strong>Desafio Blog</strong>
+            <% end %>
+          </li>
+        </ul>
+        <ul>
+          <li><%= link_to "Listado de posts", posts_path %></li>
+          <li><%= link_to "Nuevo Post", new_post_path, role: "button" %></li>
+        </ul>
+      </nav>
+      <%= yield %>
+    </main>
   </body>
 </html>
